@@ -91,12 +91,7 @@ public class UserTest {
 			assertEquals(usuario.getPasswordHash(), "123");
 		}
 		
-		@Test
-		public void testCourses() {
-			Course course = mock(Course.class);
-			Set<Course> course2 = null;
-			usuario.setCourses(course2); 
-		}
+		
 		
 		
 }
