@@ -8,15 +8,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import com.fullteaching.backend.forum.*;
-import org.mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+
+import com.fullteaching.backend.entry.*;
+
 
 public class ForumTest {
 
-	static Forum forum = new Forum(false);
+	static Forum forum ;
 
 	@BeforeAll
 	public static void inicializa() {
+		forum = new Forum();
 		forum.setActivated(true);
+	}
+	@Test
+	public void test_construtor_boolean() {
+		Forum forum_true = new Forum(true);
+		assertEquals(forum_true.getEntries().size(), 0);
 	}
 	
 	@Test
@@ -35,6 +47,18 @@ public class ForumTest {
 	
 	@Test
 	public void testeToString() {
-		assertEquals(forum.toString(), "Forum[activated: \"true\", #entries: \"0\", #comments: \"0\"]");
+		assertEquals(forum.toString(), "Forum[activated: \"true\", #entries: \"1\", #comments: \"0\"]");
+	}
+	
+	@Test
+	public void testList() {
+		Entry entry = mock(Entry.class);
+		when(entry.getTitle()).thenReturn("aaa");
+		ArrayList<Entry> lista = new ArrayList<Entry>();
+		lista.add(entry);
+		forum.setEntries(lista);
+		assertEquals(forum.getEntries().size(), 1);
+		
+		
 	}
 }
