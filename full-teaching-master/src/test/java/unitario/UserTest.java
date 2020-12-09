@@ -57,7 +57,7 @@ public class UserTest {
 		@Test
 		public void verificarLista() {
 			assertNotEquals(usuario.getRoles(), lista);
-			lista.remove(2);
+			usuario.setRoles(lista);
 			assertEquals(usuario.getRoles(), lista);
 		}
 		

@@ -77,6 +77,15 @@ public class EntryTest {
 	}
 	
 	@Test
+	public void test_entry_constructor() {
+		User user = mock(User.class);
+		when(user.getName()).thenReturn("aaaa");
+		Entry entry = new Entry("Title", 8112020, user);
+		assertEquals(entry.getUser().getName(), "aaaa");
+		assertEquals(entry.getTitle(), "Title");
+	}
+	
+	@Test
 	public void testa_toString() {
 		assertEquals(entry.toString(), "Entry[title: \"aaa\", author: \"null\", date: 8112020, #comments: 0]");		
 	}
