@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -16,49 +17,50 @@ import com.fullteaching.backend.session.*;
 
 public class SessionTest {
 	
-	static Session session  = new Session ("Titulo", "description", 123L);
+	Session session  = new Session ("Titulo", "description", 123L);
 	
-	@BeforeAll
-	public static void inicializa() {
+	@Before
+	public void inicializa() {
 		session.setId(1L);	
 	}
 	
 	@Test
-	public static void testaId() {
+	public void testaId() {
 		assertNotEquals((long)session.getId(), 8L);
 		session.setId(8L);
 		assertEquals((long)session.getId(), 8L);
 	}
 	
 	@Test
-	public static void testaTitulo() {
+	public void testaTitulo() {
 		assertNotEquals(session.getTitle(), "aaaa");
 		session.setTitle("aaa");
-		assertEquals(session.getTitle(), "aaaa");
+		assertEquals(session.getTitle(), "aaa");
 	}
 	
 	@Test
-	public static void testaDescription() {
+	public void testaDescription() {
 		assertEquals(session.getDescription(), "description");
-		session.setTitle("new description");
+		session.setDescription("new description");
 		assertEquals(session.getDescription(), "new description");
 	}
 	
 	@Test
-	public static void testaData() {
+	public void testaData() {
 		session.setDate(20082020);
 		assertEquals(session.getDate(), 20082020);
 	}
 	
 	@Test
-	public static void testaEquals() {
+	public void testaEquals() {
 		Session session2  = new Session ("Titulo", "description", 123L);
+		session2.setId(1L);
 		assertFalse(session.equals(session2));
 		assertTrue(session.equals(session));
 	}
 	
 	@Test
-	public static void TestToString() {
+	public void TestToString() {
 		assertNotEquals(session.toString(), "Session fail");
 	}
 	
