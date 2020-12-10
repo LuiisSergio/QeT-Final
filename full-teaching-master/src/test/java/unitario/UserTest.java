@@ -3,17 +3,15 @@ package unitario;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import com.fullteaching.backend.course.Course;
 import com.fullteaching.backend.user.User;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
-import java.util.Set;
+
 
 
 public class UserTest {

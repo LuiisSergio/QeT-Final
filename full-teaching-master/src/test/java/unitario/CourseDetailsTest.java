@@ -2,6 +2,7 @@ package unitario;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.springframework.core.SpringVersion;
 
 import com.fullteaching.backend.coursedetails.*;
 import com.fullteaching.backend.filegroup.FileGroup;
